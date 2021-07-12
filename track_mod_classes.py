@@ -114,15 +114,21 @@ def draw_boxes(img, bbox, frame_idx, myclasses ,identities=None, offset=(0, 0)):
 
       else:
         color = compute_color_for_labels(id)
-      label = '{}{:d} class:{} {} km/hr time:{} D:{}'.format("", id,class_names , int(velocity), round(time2acc,2), round(distance,2))
-      t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 2, 2)[0]
-      cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
-      cv2.circle(img, (cen_x,cen_y), 3, color, -1)
-      
-      cv2.rectangle(
-          img, (x1, y1), (x1 + t_size[0] + 3, y1 + t_size[1] + 4), color, -1)
-      cv2.putText(img, label, (x1, y1 +
-                                t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 2, [255, 255, 255], 2)
+        label_class = '{}{}'.format("", class_names)
+        label_velocity = '{}{}Km/hr'.format("", int(km_hr_v))
+        label_time2accident = '{}{}s'.format("", round(time2acc, 1))
+        t_size = cv2.getTextSize(label_class, cv2.FONT_HERSHEY_PLAIN, 2, 2)[0]
+        cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
+        cv2.circle(img, (cen_x, cen_y), 3, color, -1)
+
+        cv2.rectangle(
+            img, (x1, y1), (x1 + t_size[0] + 3, y1 + t_size[1] + 4), color, -1)
+        cv2.putText(img, label_class, (x1, y1 +
+                                 t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 2, [255, 255, 255], 2)
+        cv2.putText(img, label_velocity, (x1, y1 +
+                                 t_size[1] + 4 + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 2, [255, 255, 255], 2)
+        cv2.putText(img, label_time2accident, (x1, y1 +
+                                 t_size[1] + 4 + t_size[1] + 4 + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 2, [255, 255, 255], 2)                                               
     return img
 
 
