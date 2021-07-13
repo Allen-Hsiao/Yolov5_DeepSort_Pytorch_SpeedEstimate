@@ -1,6 +1,4 @@
-
-
-https://user-images.githubusercontent.com/67730218/125109082-7517f800-e115-11eb-950f-e4ca277ddc31.mov
+https://user-images.githubusercontent.com/67730218/125386371-bdae0a80-e3ce-11eb-9948-4bdcd255c759.mov
 
 # Project under development
 
